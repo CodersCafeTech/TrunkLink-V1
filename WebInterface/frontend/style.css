@@ -1,0 +1,459 @@
+
+body {
+    font-family: "Smooch Sans", serif;
+    font-weight: 500;
+    font-style: bold;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f7;
+    display: flex;
+    height: 100vh;
+}
+
+/* Floating Alert Card Styles */
+.alert-card {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 400px;
+    max-width: calc(100vw - 40px);
+    background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3),
+                0 0 0 1px rgba(255, 255, 255, 0.5);
+    z-index: 10000;
+    animation: slideInRight 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    overflow: hidden;
+}
+
+.alert-card.hidden {
+    display: none;
+}
+
+.alert-card.breach {
+    border-left: 6px solid #dc2626;
+}
+
+.alert-card.return {
+    border-left: 6px solid #16a34a;
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(120%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 20px;
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+    position: relative;
+}
+
+.alert-card.return .alert-header {
+    background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+}
+
+.alert-header i.fa-elephant {
+    font-size: 24px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.alert-header span {
+    flex: 1;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.close-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.alert-body {
+    padding: 20px;
+}
+
+.alert-body p {
+    margin: 0 0 16px 0;
+    font-size: 16px;
+    color: #1f2937;
+    line-height: 1.5;
+}
+
+.alert-details {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.detail-item i {
+    color: #dc2626;
+    width: 20px;
+}
+
+.alert-actions {
+    display: flex;
+    gap: 10px;
+    padding: 0 20px 20px 20px;
+}
+
+.action-btn {
+    flex: 1;
+    padding: 12px 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: all 0.2s;
+}
+
+.action-btn.primary {
+    background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+    color: white;
+}
+
+.action-btn.primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}
+
+.action-btn.secondary {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.action-btn.secondary:hover {
+    background: #e5e7eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 15px;
+        border-radius: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .sidebar img {
+        display: none;
+    }
+
+    .sidebar a {
+        margin: 5px;
+        padding: 8px 12px;
+        font-size: 0.9rem;
+        flex: 0 0 auto;
+    }
+
+    .sidebar a i {
+        font-size: 1.1rem;
+        margin-right: 5px;
+    }
+
+    .sidebar .logout {
+        position: static;
+        margin-top: 0;
+    }
+
+    .main-content {
+        flex: 1;
+        padding: 15px;
+        width: 100%;
+        overflow-x: hidden;
+    }
+
+    .main-content h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+
+    .dropdown-container {
+        margin-bottom: 15px;
+    }
+
+    .dropdown-container select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+    }
+
+    .neumorphic-card {
+        margin: 0;
+        padding: 10px;
+        border-radius: 15px;
+    }
+
+    #map {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .coordinates {
+        font-size: 0.8rem;
+        padding: 8px;
+    }
+
+    .alert-card {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        width: auto;
+        max-width: none;
+    }
+
+    .alert-header {
+        padding: 15px;
+    }
+
+    .alert-body {
+        padding: 15px;
+    }
+
+    .alert-actions {
+        flex-direction: column;
+        padding: 0 15px 15px 15px;
+    }
+
+    .action-btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #1a1a3d;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    margin-right: -20px;
+    height: 57.4rem;
+    margin-top: 1.25rem;
+    margin-left: 1.5rem;
+    border-radius:  20px 0 0 20px;
+    font-size: 1.3rem;
+}
+
+.sidebar img {
+    width: 50px;
+    margin-bottom: 20px;
+}
+
+.sidebar a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 0; /* Space between links */
+    padding: 10px;
+    display: flex; /* Flexbox for alignment */
+    align-items: center; /* Vertically align icon and text */
+    gap: 12px; /* Spacing between the icon and text */
+    line-height: 1; /* Reset line height to avoid extra spacing */
+}
+
+.sidebar a i {
+    font-size: 1.3rem; /* Standardize icon size */
+    min-width: 24px; /* Ensure consistent space for icons */
+    text-align: center; /* Center icon within its space */
+}
+
+.sidebar a span {
+    display: inline-block; /* Ensure the text behaves consistently */
+    font-size: 1rem; /* Match the text size */
+    line-height: 1; /* Reset line height for text alignment */
+    margin: 0; /* Remove any extra margin */
+    padding: 0; /* Remove any extra padding */
+}
+
+.sidebar a.active {
+    background-color: #2a2a5a;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Ensure vertical alignment */
+    gap: 12px; /* Consistent spacing */
+    position: relative;
+    width: 102%;
+}
+
+.sidebar a.active::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #ef7f73;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.sidebar .logout {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+}
+
+
+.main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: white;
+    border-radius: 0 20px 20px 0;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.main-content h1 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+.main-content h1 .flex {
+    display: flex;
+}
+
+.main-content h1 .justify-between {
+    justify-content: space-between;
+}
+
+.main-content h1 .items-center {
+    align-items: center;
+}
+
+.main-content h1 .user-info {
+    font-size: 0.9rem;
+    font-weight: normal;
+}
+
+.main-content h1 .text-green-600 {
+    color: #16a34a;
+}
+
+.main-content h1 .text-gray-500 {
+    color: #6b7280;
+}
+
+.main-content h1 .text-sm {
+    font-size: 0.875rem;
+}
+
+.main-content h1 .font-normal {
+    font-weight: 400;
+}
+
+.dropdown-container{
+    display: flex;
+    align-items: center; /* Align items in the center vertically */
+    position: absolute;
+    right: 40;
+    top: 60;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+  
+  .dropdown-container select {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20rem;
+    height: 2rem;
+    background-color: #ffffff;
+    border-radius: 20px;
+    position: relative;
+    border-color: #ffffff;
+  }
+
+.neumorphic-card {
+    background: #ffffff; /* Slightly darker than white */
+    border-radius: 20px;
+    margin: 20px 0;
+    text-align: center;
+    color: #333;
+    font-size: 1.2rem;
+    height: 53rem;
+    overflow: hidden;
+}
+
+#map {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+}
+  
+.coordinates {
+    margin-top: 10px;
+    font-family: monospace;
+  }
+  
+button {
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 16px;
+  }
+
+
+
+
