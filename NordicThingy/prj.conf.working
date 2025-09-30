@@ -1,0 +1,92 @@
+# /* The Clear BSD License
+#  *
+#  * Copyright (c) 2025 EdgeImpulse Inc.
+#  * All rights reserved.
+#  *
+#  * Redistribution and use in source and binary forms, with or without
+#  * modification, are permitted (subject to the limitations in the disclaimer
+#  * below) provided that the following conditions are met:
+#  *
+#  *   * Redistributions of source code must retain the above copyright notice,
+#  *   this list of conditions and the following disclaimer.
+#  *
+#  *   * Redistributions in binary form must reproduce the above copyright
+#  *   notice, this list of conditions and the following disclaimer in the
+#  *   documentation and/or other materials provided with the distribution.
+#  *
+#  *   * Neither the name of the copyright holder nor the names of its
+#  *   contributors may be used to endorse or promote products derived from this
+#  *   software without specific prior written permission.
+#  *
+#  * NO EXPRESS OR IMPLIED LICENSES TO ANY PARTY'S PATENT RIGHTS ARE GRANTED BY
+#  * THIS LICENSE. THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
+#  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+#  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+#  * PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+#  * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+#  * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+#  * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
+#  * BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER
+#  * IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+#  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+#  * POSSIBILITY OF SUCH DAMAGE.
+#  */
+
+# General config
+CONFIG_NEWLIB_LIBC=y
+CONFIG_NEWLIB_LIBC_NANO=y
+CONFIG_NEWLIB_LIBC_FLOAT_PRINTF=y
+CONFIG_ASSERT=y
+CONFIG_REBOOT=y
+CONFIG_FPU=y
+CONFIG_CPP=y
+CONFIG_GLIBCXX_LIBCPP=y
+CONFIG_BOOT_BANNER=n
+CONFIG_COMPILER_WARNINGS_AS_ERRORS=n
+
+# Heap and stacks
+CONFIG_HEAP_MEM_POOL_SIZE=47250
+CONFIG_MAIN_STACK_SIZE=2048
+CONFIG_SYSTEM_WORKQUEUE_STACK_SIZE=4096
+CONFIG_HW_STACK_PROTECTION=y
+
+# Logging
+CONFIG_LOG=y
+CONFIG_LOG_MODE_DEFERRED=y
+CONFIG_CBPRINTF_PACKAGE_LOG_LEVEL_OFF=y
+CONFIG_FLASH_LOG_LEVEL_OFF=y
+CONFIG_SENSOR_LOG_LEVEL_OFF=y
+
+# Disable MCUboot DFU -- incompatible with static partitions
+CONFIG_SECURE_BOOT=n
+CONFIG_BUILD_S1_VARIANT=n
+
+# nRF modem library
+CONFIG_NRF_MODEM_LIB=y
+CONFIG_NRF_MODEM_LIB_ON_FAULT_APPLICATION_SPECIFIC=y
+
+# Modem info
+CONFIG_MODEM_INFO=y
+
+# Flash - Used in FOTA, settings and storage for P-GPS.
+CONFIG_FLASH=y
+CONFIG_FLASH_PAGE_LAYOUT=y
+CONFIG_FLASH_MAP=y
+CONFIG_STREAM_FLASH=y
+CONFIG_MPU_ALLOW_FLASH_WRITE=y
+
+# LEDs
+CONFIG_LED=y
+CONFIG_LED_GPIO=y
+
+# Sensors
+CONFIG_SENSOR=y
+
+# ADXL367 - Low-Power accelerometer for Thingy:91 X
+CONFIG_ADXL367=y
+
+# UART Config
+CONFIG_UART_INTERRUPT_DRIVEN=y
+
+# Power Management
+CONFIG_REGULATOR=y

@@ -1,0 +1,17 @@
+sample:
+  name: Fall Detection GPS Emergency Alert System
+  description: Edge Impulse fall detection with LoRaWAN GPS emergency alerts
+tests:
+  sample.fall_detection_gps_tracker:
+    integration_platforms:
+      - thingy91x/nrf9151/ns
+    tags:
+      - sensors
+      - accelerometer
+      - gnss
+      - lorawan
+      - ml
+      - fall_detection
+      - emergency_alert
+    filter: CONFIG_ADXL367 and CONFIG_NRF_MODEM_LIB and CONFIG_UART_ASYNC_API
+    harness: keyboard
